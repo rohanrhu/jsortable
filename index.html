@@ -1,0 +1,341 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>jSortable, jquery plugin for making sortable elements</title>
+
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.event.drag-2.2.js"></script>
+    <script type="text/javascript" src="js/jquery.jsortable.js"></script>
+
+    <link rel="stylesheet" href="thirdparty/highlight/styles/default.css">
+    <script src="thirdparty/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font-family: 'Arial';
+            font-weight: 13px;
+            text-align: center;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .a,
+        .a:visited {
+            color: #176bb8;
+            text-decoration: none;
+        }
+
+        .a:hover {
+            text-decoration: underline;
+        }
+
+        .main_content {
+            width: 980px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .title1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+        }
+
+        .box1 {
+            background: #505050;
+            color: white;
+            border-radius: 2px;
+            border-bottom: 2px solid rgba(0,0,0,0.2);
+            padding: 10px 10px;
+            cursor: move;
+            font-size: 13px;
+            margin-bottom: 5px;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .example1 {
+            width: 50%;
+        }
+
+        .example2 {
+            
+        }
+
+        .box2 {
+            background: #505050;
+            color: white;
+            border-radius: 2px;
+            border-bottom: 2px solid rgba(0,0,0,0.2);
+            padding: 10px 10px;
+            cursor: move;
+            font-size: 13px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            width: 100px;
+            height: 100px;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            float: left;
+        }
+
+        .title2 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $example1 = $('.example1');
+
+            $example1.jsortable({
+                sortable: '.box1',
+                show_target_placeholder: true,
+                show_source_placeholder: false
+            });
+
+            $example1.on('jsortable_updated', function (event) {
+                console.log($example1.jsortable('getElements'));
+            });
+
+            $('.example2').jsortable({
+                sortable: '.box2',
+                show_target_placeholder: true,
+                show_source_placeholder: false
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="main_content">
+        <div class="title1" style="margin-top: 25px;">
+            jSortable
+        </div>
+        <div class="description">
+            jquery plugin for making sortable elements
+        </div>
+
+        <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+            Load
+            (The plugin depends to <a class="a" href="http://threedubmedia.com/code/event/drag" target="_blank">jquery.event.drag plugin</a>)
+        </div>
+<pre><code class="html">&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery-1.11.1.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery.event.drag-2.2.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery.jsortable.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>
+
+        <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
+            Vertical
+        </div>
+        <div class="example1">
+            <div class="box1">
+                Element 1
+            </div>
+            <div class="box1">
+                Element 2
+            </div>
+            <div class="box1">
+                Element 3
+            </div>
+            <div class="box1">
+                Element 4
+            </div>
+        </div>
+        <div style="">
+            <div style="float: left; width: 20%; margin-right: 1%;">
+                <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+                    HTML
+                </div>
+<pre><code class="html">&#x3C;div class=&#x22;example1&#x22;&#x3E;
+    &#x3C;div class=&#x22;box1&#x22;&#x3E;
+        Element 1
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;box1&#x22;&#x3E;
+        Element 2
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;box1&#x22;&#x3E;
+        Element 3
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;box1&#x22;&#x3E;
+        Element 4
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+            <div style="float: left; width: 35%;">
+                <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+                    CSS
+                </div>
+                <pre><code class="css">.box1 {
+    background: #505050;
+    color: white;
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    padding: 10px 10px;
+    cursor: move;
+    font-size: 13px;
+    margin-bottom: 5px;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}</code></pre>
+            </div>
+            <div style="float: right; width: 42%;">
+                <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+                    Javascript
+                </div>
+<pre><code class="javascript">var $example1 = $('.example1');
+
+$example1.jsortable({
+    sortable: '.box1',
+    show_target_placeholder: true,
+    show_source_placeholder: false
+});
+
+$example1.on('jsortable_updated', function (event) {
+    console.log($example1.jsortable('getElements'));
+});</code></pre>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
+            Horizontal
+        </div>
+        <div class="example2">
+            <div class="box2">
+                Element 1
+            </div>
+            <div class="box2">
+                Element 2
+            </div>
+            <div class="box2">
+                Element 3
+            </div>
+            <div class="box2">
+                Element 4
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div style="">
+            <div style="float: left; width: 25%; margin-right: 1%;">
+                <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+                    HTML
+                </div>
+<pre><code class="html">&#x3C;div class=&#x22;example2&#x22;&#x3E;
+    &#x3C;div class=&#x22;box2&#x22;&#x3E;
+        Element 1
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;box2&#x22;&#x3E;
+        Element 2
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;box2&#x22;&#x3E;
+        Element 3
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;box2&#x22;&#x3E;
+        Element 4
+    &#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;clear&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+            </div>
+            <div style="float: left; width: 35%;">
+                <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+                    CSS
+                </div>
+                <pre><code class="css">.box1 {
+    background: #505050;
+    color: white;
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    padding: 10px 10px;
+    cursor: move;
+    font-size: 13px;
+    margin-bottom: 5px;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}</code></pre>
+            </div>
+            <div style="float: right; width: 37%;">
+                <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
+                    Javascript
+                </div>
+<pre><code class="javascript">$(document).ready(function () {
+    $('.example2').jsortable({
+        sortable: '.box2',
+        show_target_placeholder: true,
+        show_source_placeholder: false
+    });
+});</code></pre>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
+            Events
+        </div>
+        <div style="font-size: 14px;">
+            <div style="font-size: 14px; margin-bottom: 15px;">
+                There is one event in jsortable.
+            </div>
+            <div>
+                <b>jsortable_updated</b> - <i>Fires on update queuee</i>
+            </div>
+            <div style="margin-left: 15px; margin-top: 10px;">
+                <div style="padding: 5px 5px; background: #f0f0f0; display: inline-block; font-size: 12px; font-weight: bold;">
+                    Example
+                </div>
+                <div>
+<pre><code class="javascript" style="background: #f0f0f0;">$example1.on('jsortable_updated', function (event) {
+    console.log($example1.jsortable('getElements'));
+});</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
+            Methods
+        </div>
+        <div style="font-size: 14px;">
+            <div style="font-size: 14px; margin-bottom: 15px;">
+                There is one method in jsortable.
+            </div>
+            <div>
+                <b>getElements()</b> - <i>Gets jQuery list sortable elements</i>
+            </div>
+            <div style="margin-left: 15px; margin-top: 10px;">
+                <div style="padding: 5px 5px; background: #f0f0f0; display: inline-block; font-size: 12px; font-weight: bold;">
+                    Example
+                </div>
+                <div>
+                    <pre><code class="javascript" style="background: #f0f0f0;">$example1.jsortable('getElements');</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="font-size: 13px; margin: auto; margin-top: 25px; margin-bottom: 25px;">
+        Copyright &copy;
+        <a href="http://oguzhaneroglu.com" class="a" target="_blank">Oğuzhan Eroğlu</a>,
+        licensed under <a href="http://opensource.org/licenses/MIT" class="a" target="_blank">MIT</a>.
+    </div>
+
+    <a href="https://github.com/rohanrhu/jsortable"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+</body>
+</html>
