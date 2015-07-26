@@ -126,3 +126,6 @@ There is one method in jsortable.
 
   Example
     $example1.jsortable('getElements');
+
+##License
+MIT
