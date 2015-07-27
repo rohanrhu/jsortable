@@ -205,7 +205,7 @@
                                 return false;
                             } else if (
                                 (
-                                    (sortable_data.index != data.$jsortable_sortable_s__order.length)
+                                    (sortable_data.index != data.$jsortable_sortable_s__order.length - 1)
                                     &&
                                     (_current_sortable_i == (data.$jsortable_sortable_s__order.length - 2))
                                     &&
