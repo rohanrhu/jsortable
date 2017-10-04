@@ -149,5 +149,5 @@ jQuery array object of elements in order.
 $example1.jsortable('getElements');
 ```
 
-##License
+## License
 MIT
