@@ -8,10 +8,6 @@
     <script type="text/javascript" src="js/jquery.event.drag-2.2.js"></script>
     <script type="text/javascript" src="js/jquery.jsortable.js"></script>
 
-    <link rel="stylesheet" href="thirdparty/highlight/styles/default.css">
-    <script src="thirdparty/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
     <style type="text/css">
         * {
             margin: 0px;
@@ -51,10 +47,17 @@
 
         .description {
             font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .link {
+            margin-bottom: 5px;
         }
 
         .box1 {
+            width: 500px;
             background: #505050;
+            text-align: left;
             color: white;
             border-radius: 2px;
             border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -69,15 +72,14 @@
         }
 
         .example1 {
-            width: 50%;
         }
 
         .example2 {
-            
         }
 
         .box2 {
             background: #505050;
+            text-align: left;
             color: white;
             border-radius: 2px;
             border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -99,6 +101,20 @@
             font-size: 15px;
             font-weight: bold;
         }
+
+        .codeBox {
+            background: #f1f1f1;
+            padding: 5px;
+        }
+
+        .list {
+        }
+
+        .list_item {
+            padding: 5px;
+            background: #f1f1f1;
+            margin-bottom: 5px;
+        }
     </style>
 
     <script type="text/javascript">
@@ -106,6 +122,7 @@
             var $example1 = $('.example1');
 
             $example1.jsortable({
+                mode: $.fn.jsortable.MODE_VERTICAL,
                 sortable: '.box1',
                 show_target_placeholder: true,
                 show_source_placeholder: false
@@ -116,6 +133,7 @@
             });
 
             $('.example2').jsortable({
+                mode: $.fn.jsortable.MODE_HORIZONTAL,
                 sortable: '.box2',
                 show_target_placeholder: true,
                 show_source_placeholder: false
@@ -131,14 +149,24 @@
         <div class="description">
             jquery plugin for making sortable elements
         </div>
+        <div class="link">
+            <a class="a" href="https://oguzhaneroglu.com/projects/jsortable/" title="jSortable, jQuery Plugin">
+                http://oguzhaneroglu.com/projects/jsortable/
+            </a>
+        </div>
+        <div class="link">
+            <a class="a" href="https://github.com/rohanrhu/jsortable" title="jSortable, jQuery Plugin on Github">
+                https://github.com/rohanrhu/jsortable
+            </a>
+        </div>
 
         <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
             Load
             (The plugin depends to <a class="a" href="http://threedubmedia.com/code/event/drag" target="_blank">jquery.event.drag plugin</a>)
         </div>
-<pre><code class="html">&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery-1.11.1.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+<pre class="codeBox">&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery-1.11.1.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery.event.drag-2.2.js&#x22;&#x3E;&#x3C;/script&#x3E;
-&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery.jsortable.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>
+&#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;js/jquery.jsortable.js&#x22;&#x3E;&#x3C;/script&#x3E;</pre>
 
         <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
             Vertical
@@ -162,7 +190,7 @@
                 <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
                     HTML
                 </div>
-<pre><code class="html">&#x3C;div class=&#x22;example1&#x22;&#x3E;
+<pre class="codeBox">&#x3C;div class=&#x22;example1&#x22;&#x3E;
     &#x3C;div class=&#x22;box1&#x22;&#x3E;
         Element 1
     &#x3C;/div&#x3E;
@@ -175,14 +203,16 @@
     &#x3C;div class=&#x22;box1&#x22;&#x3E;
         Element 4
     &#x3C;/div&#x3E;
-&#x3C;/div&#x3E;</code></pre>
+&#x3C;/div&#x3E;</pre>
             </div>
             <div style="float: left; width: 35%;">
                 <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
                     CSS
                 </div>
-                <pre><code class="css">.box1 {
+                <pre class="codeBox">.box1 {
+    width: 500px;
     background: #505050;
+    text-align: left;
     color: white;
     border-radius: 2px;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -194,15 +224,16 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
-}</code></pre>
+}</pre>
             </div>
             <div style="float: right; width: 42%;">
                 <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
                     Javascript
                 </div>
-<pre><code class="javascript">var $example1 = $('.example1');
+<pre class="codeBox">var $example1 = $('.example1');
 
 $example1.jsortable({
+    mode: $.fn.jsortable.MODE_VERTICAL,
     sortable: '.box1',
     show_target_placeholder: true,
     show_source_placeholder: false
@@ -210,7 +241,7 @@ $example1.jsortable({
 
 $example1.on('jsortable_updated', function (event) {
     console.log($example1.jsortable('getElements'));
-});</code></pre>
+});</pre>
             </div>
             <div class="clear"></div>
         </div>
@@ -237,7 +268,7 @@ $example1.on('jsortable_updated', function (event) {
                 <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
                     HTML
                 </div>
-<pre><code class="html">&#x3C;div class=&#x22;example2&#x22;&#x3E;
+<pre class="codeBox">&#x3C;div class=&#x22;example2&#x22;&#x3E;
     &#x3C;div class=&#x22;box2&#x22;&#x3E;
         Element 1
     &#x3C;/div&#x3E;
@@ -251,14 +282,15 @@ $example1.on('jsortable_updated', function (event) {
         Element 4
     &#x3C;/div&#x3E;
     &#x3C;div class=&#x22;clear&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x3C;/div&#x3E;</code></pre>
+&#x3C;/div&#x3E;</pre>
             </div>
             <div style="float: left; width: 35%;">
                 <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
                     CSS
                 </div>
-                <pre><code class="css">.box1 {
+                <pre class="codeBox">.box2 {
     background: #505050;
+    text-align: left;
     color: white;
     border-radius: 2px;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -266,25 +298,53 @@ $example1.on('jsortable_updated', function (event) {
     cursor: move;
     font-size: 13px;
     margin-bottom: 5px;
+    margin-right: 5px;
+    width: 100px;
+    height: 100px;
     user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
-}</code></pre>
+    float: left;
+}</pre>
             </div>
             <div style="float: right; width: 37%;">
                 <div style="font-size: 13px; font-weight: bold; margin-top: 25px; margin-bottom: 15px;">
                     Javascript
                 </div>
-<pre><code class="javascript">$(document).ready(function () {
+<pre class="codeBox">$(document).ready(function () {
     $('.example2').jsortable({
+        mode: $.fn.jsortable.MODE_HORIZONTAL,
         sortable: '.box2',
         show_target_placeholder: true,
         show_source_placeholder: false
     });
-});</code></pre>
+});</pre>
             </div>
             <div class="clear"></div>
+        </div>
+
+        <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
+            Parameters
+        </div>
+        <div style="font-size: 14px;">
+            <div style="font-size: 14px; margin-bottom: 15px;">
+                There is 4 parameters in jsortable.
+            </div>
+            <div class="list">
+                <div class="list_item">
+                    <b>mode</b> - Maybe <b>$.fn.jsortable.MODE_HORIZONTAL</b> or <b>$.fn.MODE_VERTICAL</b>. - <i>Integer</i>
+                </div>
+                <div class="list_item">
+                    <b>sortable</b> - Sortable item selector. - <i>String</i>
+                </div>
+                <div class="list_item">
+                    <b>show_target_placeholder</b> - Show target placeholder. - <i>Boolean</i>
+                </div>
+                <div class="list_item">
+                    <b>show_source_placeholder</b> - Show source placeholder seperately with target placeholder. - <i>Boolean</i>
+                </div>
+            </div>
         </div>
 
         <div class="title2" style="margin-top: 25px; margin-bottom: 15px;">
@@ -302,9 +362,9 @@ $example1.on('jsortable_updated', function (event) {
                     Example
                 </div>
                 <div>
-<pre><code class="javascript" style="background: #f0f0f0;">$example1.on('jsortable_updated', function (event) {
+<pre class="codeBox">$example1.on('jsortable_updated', function (event) {
     console.log($example1.jsortable('getElements'));
-});</code></pre>
+});</pre>
                 </div>
             </div>
         </div>
@@ -324,7 +384,7 @@ $example1.on('jsortable_updated', function (event) {
                     Example
                 </div>
                 <div>
-                    <pre><code class="javascript" style="background: #f0f0f0;">$example1.jsortable('getElements');</code></pre>
+                    <pre class="codeBox">$example1.jsortable('getElements');</pre>
                 </div>
             </div>
         </div>
